@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const weatherDisplay = document.getElementById("today") as HTMLDivElement;
   const forecastDisplay = document.getElementById("forecast") as HTMLDivElement;
 
-  const API_BASE_URL = "http://localhost:3001/api/weather";
+const API_BASE_URL = "https://weather-dashboard-s5v7.onrender.com/api/weather";
+";
 
   // ✅ Function to fetch weather data
   const fetchWeather = async (city: string) => {
