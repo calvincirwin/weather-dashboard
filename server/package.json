@@ -2,20 +2,13 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "dist/server.js",
   "type": "module",
   "scripts": {
-  "build": "npx tsc",
-  "start": "node dist/server.js",
-  "dev": "npx nodemon src/server.ts"
-},
-  "nodemonConfig": {
-    "watch": ["src"],
-    "ext": "ts,json,js",
-    "exec": "npx tsc && node dist/server.js"
+    "build": "npx tsc",
+    "start": "node dist/server.js",
+    "dev": "npx nodemon src/server.ts"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "dayjs": "^1.11.10",
     "dotenv": "^16.4.5",
