@@ -1,6 +1,3 @@
-Here’s your complete README.md:
-
-md
 # 🌦️ Weather Dashboard
 
 ![Weather Dashboard Screenshot](https://github.com/calvincirwin/weather-dashboard/blob/main/screen-shots/weather-dashboard.png)
