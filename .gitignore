@@ -1,0 +1,27 @@
+node_modules
+# Ignore node_modules
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Ignore build files
+dist/
+server/dist/
+client/dist/
+
+# Ignore compiled TypeScript files
+*.js
+*.js.map
+*.d.ts
+
+# Ignore environment files
+.env
+server/.env
+
+# Ignore lock files (optional)
+package-lock.json
+client/package-lock.json
+server/package-lock.json
+
+# Ignore system files
+.DS_Store
