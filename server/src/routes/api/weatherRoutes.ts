@@ -1,4 +1,5 @@
 import express from 'express';
+import WeatherService from '../../service/weatherService.js'; // ✅ Ensure this is correct
 import { getHistory, saveSearch } from '../../service/historyService.js';
 
 const router = express.Router();
@@ -16,18 +17,26 @@ router.get('/history', async (req, res) => {
 
 // ✅ Save a city and fetch weather data
 router.post('/', async (req, res) => {
-    const { city } = req.body;
-    if (!city) {
-        return res.status(400).json({ error: "City name is required." });
-    }
+  const { city } = req.body;
+  
+  if (!city) {
+      return res.status(400).json({ error: "City name is required." });
+  }
 
-    try {
-        await saveSearch(city);
-        res.json({ message: "City saved successfully" });
-    } catch (error) {
-        console.error("Error saving city:", error);
-        res.status(500).json({ error: "Could not save city" });
-    }
+  try {
+      const weatherData = await WeatherService.getWeatherData(city);
+      await saveSearch(city);
+      return res.json(weatherData);
+  } catch (error) {
+      console.error("Weather API Error:", error);
+
+      if (error instanceof Error) {
+          return res.status(404).json({ error: error.message });
+      } else {
+          return res.status(500).json({ error: "Unexpected error occurred." });
+      }
+  }
 });
+
 
 export default router;
