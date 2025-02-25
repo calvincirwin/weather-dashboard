@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "id": "8b59ceba-e8f1-4d20-b818-36631b8f7f94",
+    "city": "san diego"
+  },
+  {
+    "id": "5f3154ae-e9f0-4026-9fd6-2936478f8013",
+    "city": "San Diego"
+  },
+  {
+    "id": "6d71dafc-bb3d-4c71-880a-9def32d582cf",
+    "city": "san diego"
+  },
+  {
+    "id": "071b9355-489b-4bdc-bbb8-902633c60afb",
+    "city": "San Diego"
+  },
+  {
+    "id": "d70eb625-ec65-413b-8327-3893416bda0d",
+    "city": "san diego"
+  },
+  {
+    "id": "6a40a806-3c93-4b04-aff0-ab0366379289",
+    "city": "Salt Lake City"
+  },
+  {
+    "id": "00708741-9085-40dd-a4fb-ef84dffc94d3",
+    "city": "Pleasant Grove"
+  },
+  {
+    "id": "77f53eb3-9274-4c84-8e46-25d0a2cf2d5f",
+    "city": "Pleasant Grove, UT"
+  }
+]

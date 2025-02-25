@@ -1868,20 +1868,27 @@ label form [type='radio'] {
   vertical-align: middle;
 }
 
-.history-btn {
-  text-align: center;
-  display: inline-block;
-  padding: 0.5rem;
-  /* margin-left: 0.5rem; */
-  text-decoration: none;
-  font-size: 1rem;
-  border-radius: 0.3rem;
-  border: 1px solid transparent;
-  outline: none;
-  color: #1a1a1a;
-  background-color: #aeaeae;
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+#history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
 }
+
+.history-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.history-btn:hover {
+  background-color: #5a6268;
+}
+
 
 .search-button {
   /* text-align: inherit; */

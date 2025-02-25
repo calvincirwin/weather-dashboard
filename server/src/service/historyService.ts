@@ -1,17 +1,41 @@
-// TODO: Define a City class with name and id properties
+import fs from 'fs/promises';
+import path from 'path';
+import { v4 as uuidv4 } from 'uuid';
+import { fileURLToPath } from 'url';
 
-// TODO: Complete the HistoryService class
-class HistoryService {
-  // TODO: Define a read method that reads from the searchHistory.json file
-  // private async read() {}
-  // TODO: Define a write method that writes the updated cities array to the searchHistory.json file
-  // private async write(cities: City[]) {}
-  // TODO: Define a getCities method that reads the cities from the searchHistory.json file and returns them as an array of City objects
-  // async getCities() {}
-  // TODO Define an addCity method that adds a city to the searchHistory.json file
-  // async addCity(city: string) {}
-  // * BONUS TODO: Define a removeCity method that removes a city from the searchHistory.json file
-  // async removeCity(id: string) {}
-}
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const HISTORY_FILE = path.join(__dirname, '../../db/db.json');
 
-export default new HistoryService();
+// ✅ Get search history
+export const getHistory = async () => {
+  try {
+    const data = await fs.readFile(HISTORY_FILE, 'utf-8');
+    return JSON.parse(data);
+  } catch (err) {
+    return [];
+  }
+};
+
+// ✅ Save a city search
+export const saveSearch = async (city: string) => {
+  try {
+    let history = await getHistory();
+    const newEntry = { id: uuidv4(), city };
+    history.push(newEntry);
+    await fs.writeFile(HISTORY_FILE, JSON.stringify(history, null, 2));
+  } catch (err) {
+    console.error("Error saving search:", err);
+  }
+};
+
+// ✅ Delete a city from history
+export const deleteSearch = async (id: string) => {
+  try {
+    let history = await getHistory();
+history = history.filter((entry: { id: string }) => entry.id !== id);
+    await fs.writeFile(HISTORY_FILE, JSON.stringify(history, null, 2));
+  } catch (err) {
+    console.error("Error deleting search:", err);
+  }
+};

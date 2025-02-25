@@ -1,20 +1,19 @@
-import dotenv from 'dotenv';
 import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import weatherRoutes from './routes/api/weatherRoutes.js';
+
 dotenv.config();
 
-// Import the routes
-import routes from './routes/index.js';
-
 const app = express();
-
 const PORT = process.env.PORT || 3001;
 
-// TODO: Serve static files of entire client dist folder
+app.use(cors());
+app.use(express.json());
 
-// TODO: Implement middleware for parsing JSON and urlencoded form data
+// ✅ Ensure `/api/weather` routes are available
+app.use('/api/weather', weatherRoutes);
 
-// TODO: Implement middleware to connect the routes
-app.use(routes);
-
-// Start the server on the port
-app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
