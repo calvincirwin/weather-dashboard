@@ -6,7 +6,7 @@ import weatherRoutes from './routes/api/weatherRoutes.js';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = Number(process.env.PORT) || 3001;
 
 // ✅ Allow API to be accessed from anywhere
 app.use(cors());
